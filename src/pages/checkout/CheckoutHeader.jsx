@@ -6,7 +6,7 @@ import checkoutLock from "../../assets/images/icons/checkout-lock-icon.png";
 import logo from "../../assets/images/logo.png";
 import mobileLogo from "../../assets/images/mobile-logo.png";
 
-export const CheckoutHeader = () => {
+export const CheckoutHeader = ({ totalQuantity }) => {
   return (
     <div className="checkout-header">
       <div className="header-content">
@@ -20,7 +20,7 @@ export const CheckoutHeader = () => {
         <div className="checkout-header-middle-section">
           Checkout (
           <Link className="return-to-home-link" to="/">
-            3 items
+            {totalQuantity} items
           </Link>
           )
         </div>
