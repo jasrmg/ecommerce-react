@@ -2,9 +2,11 @@ import { Routes, Route } from "react-router";
 
 import { HomePage } from "./pages/HomePage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
-import "./App.css";
 import { OrdersPage } from "./pages/OrdersPage";
 import { TrackingPage } from "./pages/TrackingPage";
+import { NotfoundPage } from "./pages/NotfoundPage";
+
+import "./App.css";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="checkout" element={<CheckoutPage />} />
       <Route path="orders" element={<OrdersPage />} />
       <Route path="tracking" element={<TrackingPage />} />
+
+      <Route path="*" element={<NotfoundPage />} />
     </Routes>
   );
 }
