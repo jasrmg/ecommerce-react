@@ -28,12 +28,17 @@ export const TrackingPage = ({ cart }) => {
   });
 
   const totalDeliveryTimeMs =
-    orderProduct.estimateDeliveryTimeMs - order.orderTimeMs;
+    orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
   const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
   let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
   if (deliveryPercent > 100) {
     deliveryPercent = 100;
   }
+
+  const isPreparing = deliveryPercent < 33;
+  const isShipped = deliveryPercent >= 33 && deliveryPercent < 100;
+  const isDelivered = deliveryPercent === 100;
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="tracking-favicon.png" />
@@ -59,9 +64,19 @@ export const TrackingPage = ({ cart }) => {
           <img className="product-image" src={orderProduct.product.image} />
 
           <div className="progress-labels-container">
-            <div className="progress-label">Preparing</div>
-            <div className="progress-label current-status">Shipped</div>
-            <div className="progress-label">Delivered</div>
+            <div
+              className={`progress-label ${isPreparing && "current-status"}`}
+            >
+              Preparing
+            </div>
+            <div className={`progress-label ${isShipped && "current-status"}`}>
+              Shipped
+            </div>
+            <div
+              className={`progress-label ${isDelivered && "current-status"}`}
+            >
+              Delivered
+            </div>
           </div>
 
           <div className="progress-bar-container">

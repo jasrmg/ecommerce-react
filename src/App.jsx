@@ -35,7 +35,7 @@ function App() {
         element={<TrackingPage cart={cart} />}
       />
 
-      <Route path="*" element={<NotfoundPage />} />
+      <Route path="*" element={<NotfoundPage cart={cart} />} />
     </Routes>
   );
 }
