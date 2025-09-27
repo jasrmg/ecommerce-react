@@ -4,9 +4,9 @@ import axios from "axios";
 
 import { HomePage } from "./pages/home/HomePage";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage";
-import { OrdersPage } from "./pages/OrdersPage";
-import { TrackingPage } from "./pages/TrackingPage";
-import { NotfoundPage } from "./pages/NotfoundPage";
+import { OrdersPage } from "./pages/orders/OrdersPage";
+import { TrackingPage } from "./pages/tracking/TrackingPage";
+import { NotfoundPage } from "./pages/notfound/NotfoundPage";
 
 import "./App.css";
 
