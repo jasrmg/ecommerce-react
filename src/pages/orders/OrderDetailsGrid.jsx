@@ -9,12 +9,10 @@ export const OrderDetailsGrid = ({ order, loadCart }) => {
     <div className="order-details-grid">
       {order.products.map((product) => {
         const addToCart = async () => {
-          console.log("processing");
           await axios.post("/api/cart-items", {
             productId: product.product.id,
             quantity: 1,
           });
-          console.log("clicked");
           await loadCart();
         };
 

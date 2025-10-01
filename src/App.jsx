@@ -10,7 +10,10 @@ import { NotfoundPage } from "./pages/notfound/NotfoundPage";
 
 import "./App.css";
 
+window.axios = axios;
+
 function App() {
+  // console.log(axios.post("/api/reset"));
   const [cart, setCart] = useState([]);
 
   // using axios with async await
