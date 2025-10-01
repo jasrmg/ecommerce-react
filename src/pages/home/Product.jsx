@@ -6,6 +6,7 @@ import checkmark from "../../assets/images/icons/checkmark.png";
 
 export const Product = ({ product, loadCart }) => {
   const [quantity, setQuantity] = useState(1);
+  const [show, setShow] = useState(false);
 
   const selectQuantity = (e) => {
     const selectedValue = Number(e.target.value);
@@ -18,6 +19,11 @@ export const Product = ({ product, loadCart }) => {
       quantity,
     });
     await loadCart();
+    setShow(true);
+
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
   };
   return (
     <div className="product-container">
@@ -56,7 +62,12 @@ export const Product = ({ product, loadCart }) => {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div
+        className="added-to-cart"
+        style={{
+          opacity: show ? 1 : 0,
+        }}
+      >
         <img src={checkmark} />
         Added
       </div>
