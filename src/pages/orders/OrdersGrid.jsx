@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import { OrderHeader } from "./OrderHeader";
 import { OrderDetailsGrid } from "./OrderDetailsGrid";
 
-export const OrdersGrid = ({ orders }) => {
+export const OrdersGrid = ({ orders, loadCart }) => {
   return (
     <div className="orders-grid">
       {orders.map((order) => {
@@ -12,7 +12,7 @@ export const OrdersGrid = ({ orders }) => {
           <div key={order.id} className="order-container">
             <OrderHeader order={order} />
 
-            <OrderDetailsGrid order={order} />
+            <OrderDetailsGrid order={order} loadCart={loadCart} />
           </div>
         );
       })}
