@@ -12,14 +12,12 @@ export const Product = ({ product, loadCart }) => {
     setQuantity(selectedValue);
   };
 
-  const addToCart = () => {
-    async () => {
-      await axios.post("/api/cart-items/", {
-        productId: product.id,
-        quantity,
-      });
-      await loadCart();
-    };
+  const addToCart = async () => {
+    await axios.post("/api/cart-items/", {
+      productId: product.id,
+      quantity,
+    });
+    await loadCart();
   };
   return (
     <div className="product-container">
